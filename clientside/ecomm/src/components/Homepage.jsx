@@ -13,7 +13,7 @@ const HomePage = ({ setUser }) => {
       navigate("/login");
     } else {
       try {
-        const res = await axios.get("http://localhost:3000/api/getuser", {
+        const res = await axios.get("http://localhost:3001/api/getuser", {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (res.status === 200) {
@@ -30,7 +30,7 @@ const HomePage = ({ setUser }) => {
 
   const getPosts = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/api/getAllPosts", {
+      const res = await axios.get("http://localhost:3001/api/getAllPosts", {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (res.status === 200) {

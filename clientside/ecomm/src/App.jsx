@@ -16,11 +16,11 @@ import ViewPost from "./components/ViewPost"
 import EditPost from "./components/EditPost"
 
 function App() {
-  const [user, setUser] = useState("")
+  const [setUser] = useState("")
   return (
     <>
       <BrowserRouter>
-        {user&& <Nav user={user}/>}
+        { <Nav/>}
         <Routes>
           <Route path="/" element={<HomePage setUser={setUser}/>}></Route>
           <Route path="/changepass" element={<ChangePass />}></Route>

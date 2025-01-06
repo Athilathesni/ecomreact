@@ -11,7 +11,7 @@ const ViewUserPost = () => {
 
   const fetchPost = async () => {
     try {
-      const res = await axios.get(`http://localhost:3000/api/getPost/${id}`, {
+      const res = await axios.get(`http://localhost:3001/api/getPost/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (res.status === 200) {
@@ -28,7 +28,7 @@ const ViewUserPost = () => {
 
   const deletePost = async () => {
     try {
-      const res = await axios.delete(`http://localhost:3000/api/deletePost/${id}`, {
+      const res = await axios.delete(`http://localhost:3001/api/deletePost/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (res.status === 200) {

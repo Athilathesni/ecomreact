@@ -60,7 +60,7 @@ const Login = () => {
             <div className="form-group">
               <input
                 className="in1"
-                type="password"
+                type="password1"
                 name="pass"
                 value={formData.pass}
                 onChange={handleChange}

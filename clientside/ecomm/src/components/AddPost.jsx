@@ -52,7 +52,7 @@ const AddPost = () => {
     try {
         console.log(data);
         
-      const res= await axios.post("http://localhost:3000/api/addPost", data, {
+      const res= await axios.post("http://localhost:3001/api/addPost", data, {
         headers: { Authorization: `Bearer ${token}` },
       });
       alert("Post created successfully:")

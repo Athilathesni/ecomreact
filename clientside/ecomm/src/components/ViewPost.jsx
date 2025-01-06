@@ -11,7 +11,7 @@ const ViewPost = () => {
 
   const fetchPost = async () => {
     try {
-      const res = await axios.get(`http://localhost:3000/api/getPost/${id}`, {
+      const res = await axios.get(`http://localhost:3001/api/getPost/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (res.status === 200) {

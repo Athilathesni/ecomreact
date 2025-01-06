@@ -1,256 +1,130 @@
-/* General layout for the page */
-.login-page {
-    display: flex;
-    height: 600px; /* Full screen height */
-    flex-direction: row;
-  }
-  
-  /* Left section - Heading area */
-  .left-section {
-    flex: 1;
-    width: 100px;
-    background-color: #3023e0; /* Green background for left section */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .login-header h2 {
-    color: white;
-    font-size: 2.5rem;
-    font-family: 'Arial', sans-serif;
-  }
-  
-  /* Right section - Form area */
-  .right-section {
-    flex: 2;
-    background-color: #f4f4f4; /* Light grey background for right section */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
-    width: 200px;
-  }
-  
-  .login-container {
-    background-color: white;
-    padding: 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .in1 {
-   
-    padding: 10px;
-    margin: 5px 0;
-    font-size: 1rem;
-  }
-  
-  .btn-login {
-    padding: 10px;
-    background-color: #0c970c;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    cursor: pointer;
-  }
-  
-  .or {
-    text-align: center;
-    margin: 20px 0;
-    color: #aaa;
-  }
-  
-  .form-footer {
-    text-align: center;
-    margin-top: 10px;
-  }
-  
-  .forgot-password-link {
-    color: #303dec;
-    text-decoration: none;
-  }
-  
-  .forgot-password-link:hover {
-    text-decoration: underline;
-  }
-  
-  .und {
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  .signup-link {
-    color: #3c29e7;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .signup-link:hover {
-    text-decoration: underline;
-  }
-  
-  .sp {
-    font-weight: normal;
-    color: rgb(116, 4, 4);
-  }
-  
-  /* Login.css */
-  .in1 {
-    border: none;
-    border-bottom: 2px solid #333; /* You can change the color to fit your design */
-    padding: 10px;
-    margin-bottom: 20px;
-    font-size: 16px;
-    outline: none;
-    width: 100%;
-  }
-  
-  .in1:focus {
-    border-bottom: 2px solid #007BFF; /* Change to the color of your choice for focus */
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  .login-container form {
-    width: 100%;
-  }
-  
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f1f3f6;
-  }
-  
-  .login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .login-box1 {
-    display: flex;
-    background-color: white;
-    width: 60%;
-    height: 60%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    margin-top: -150px;
-  }
-  
-  .login-left {
-    width: 40%;
-    background-color: #2874f0;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-  }
-  
-  .login-left h2 {
-    margin: 0;
-    font-size: 24px;
-  }
-  
-  .login-left p {
-    margin: 10px 0 0;
-    font-size: 14px;
-    text-align: center;
-  }
-  
-  .login-right {
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-  }
-  
-  .login-input {
-    width: 80%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-  }
-  
-  .btn-submit {
-    width: 100%;
-    padding: 10px;
-    background-color: #fb641b;
-    color: white;
-    border: none;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .login-button:hover {
-    background-color: #e5590f;
-  }
-  .btnlog {
-    width: 100%;
-    padding: 10px;
-    background-color: #fffefe;
-    color: #2874f0;
-    font-weight: bold;
-    box-shadow: 0 0 2px 2px rgb(240, 235, 235);
-    border: none;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-    .forms-group input {
-      border: none;
-      border-bottom: 2px solid #dddcdc; /* You can change the color to fit your design */
-      padding: 10px;
-      margin-bottom: 10px;
-      font-size: 16px;
-      outline: none;
-      width: 100%;
-    }
-    .forms-group:focus {
-      border-bottom: 2px solid #007BFF; /* Change to the color of your choice for focus */
-    }
-    
-    
-    .con1{
-      margin-top: 30px;
-      color: #5e5b5b;
-      font-size: 12px;
-    }
-    .con2{
-      margin-top: 20px;
-      color: #5e5b5b;
-      font-size: 12px;
-    }
-    .le2{
-      color: #0517bb;
-    }
-  
-    
-    @media (max-width: 400px) {
-      .register-container {
-        width: 90%;
-      }
-    }
+/* Container for the entire register page */
+.register-page {
+  display: flex;
+  height: 100vh; /* Full height of the viewport */
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Register container holding the header and form */
+.register-container {
+  display: flex; 
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+h1{
+  margin-left: 80px;
+  margin-top: 30px;
+}
+
+.in2 {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #ccc; /* Bottom border */
+  transition: border-color 0.3s ease;
+}
+
+.in2:focus {
+  border-bottom-color: #0066cc; /* Change bottom border color on focus */
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #ccc;
+  transition: border-color 0.3s ease;
+}
+
+select:focus {
+  border-bottom-color: #0066cc;
+}
+
+/* Left side for heading - making it larger */
+.left-sider{
+width: 300px;
+height: 600px;
+margin-top: 70px;
+margin-left: 200px;
+background-color: rgb(44, 127, 204);
+border-radius: 2px;
+color: white;
+}
+
+/* Right side for form - making it smaller */
+.right-sider{
+  width: 600px;
+  height: 600px;
+  margin-top: 70px;
+  background-color: #fafbfd;
+  border-radius: 2px;
+}
+
+
+/* .forms-group {
+  margin-bottom: 15px;
+  width: 100%;
+} */
+.forms-group{
+width: 500px;
+}
+input,
+select {
+  width: 500px;
+  padding: 12px;
+ margin-left: 30px;
+ margin-top: 25px;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+input[type="password"] {
+  width: calc(520px - 24px);
+  border: 1px solid rgb(184, 178, 178);
+}
+
+button.btn-submit {
+  width: 100%;
+  padding: 12px;
+  background-color: #fb641b; /* Blue color for the button */
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 30px;
+}
+
+/* For the informational texts */
+ .con2 {
+  font-size: 12px;
+  color: #474444;
+  margin-left: 30px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+p{
+  font-size: 20px;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+.le2 {
+  color: #3950cf;
+  cursor: pointer;
+}
+.img2{
+margin-top: 300px;
+margin-left: 40px;
+}
+
