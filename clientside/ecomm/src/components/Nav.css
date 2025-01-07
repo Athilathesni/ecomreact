@@ -45,13 +45,16 @@ body {
   font-size: 24px;
   font-weight: bold;
   text-decoration: none;
-  color: #daab10;
+  /* color: #daab10; */
+  color: white;
 }
 .b1{
-  color: rgb(206, 7, 163);
+  /* color: rgb(206, 7, 163); */
+  color:  #daab10;
   font-size: 20px;
   margin-top: -8px;
   margin-left: 20px;
+  font-weight: bold;
 }
 .log{
   width: 100px;

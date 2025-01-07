@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  
 }
 
 /* Register container holding the header and form */
@@ -15,10 +16,13 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   overflow: hidden;
+  margin-top: -100px;
+ 
 }
-h1{
-  margin-left: 80px;
+.h1s{
+  margin-left: -10px;
   margin-top: 30px;
+  color: white;
 }
 
 .in2 {
@@ -58,6 +62,7 @@ margin-left: 200px;
 background-color: rgb(44, 127, 204);
 border-radius: 2px;
 color: white;
+box-shadow: 0 0 2px 2px rgb(230, 227, 227);
 }
 
 /* Right side for form - making it smaller */
@@ -67,6 +72,7 @@ color: white;
   margin-top: 70px;
   background-color: #fafbfd;
   border-radius: 2px;
+  box-shadow: 0 0 2px 2px rgb(230, 227, 227);
 }
 
 
@@ -118,13 +124,14 @@ p{
   font-size: 20px;
   margin-left: 20px;
   margin-top: 10px;
+  color: white;
 }
 .le2 {
   color: #3950cf;
   cursor: pointer;
 }
 .img2{
-margin-top: 300px;
+margin-top: 250px;
 margin-left: 40px;
 }
 

@@ -40,12 +40,12 @@
     margin-bottom: 15px;
   }
   
-  .in1 {
+  /* .in1 {
    
     padding: 10px;
     margin: 5px 0;
     font-size: 1rem;
-  }
+  } */
   
   .btn-login1 {
     width: 450px;
@@ -101,16 +101,16 @@
   /* Login.css */
   .in1 {
     border: none;
-    border-bottom: 2px solid #333; /* You can change the color to fit your design */
+    border-bottom: 1px solid #333; /* You can change the color to fit your design */
     padding: 10px;
     margin-bottom: 20px;
     font-size: 16px;
     outline: none;
-    width: 100%;
+    width: 400px;
   }
   
   .in1:focus {
-    border-bottom: 2px solid #007BFF; /* Change to the color of your choice for focus */
+    border-bottom: 1px solid #007BFF; /* Change to the color of your choice for focus */
   }
   
   .form-group {
@@ -141,7 +141,8 @@
     height: 60%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
-    margin-left: 100px;
+    margin-left: 350px;
+    margin-top: -200px;
   }
   .img1{
     margin-top: 100px;

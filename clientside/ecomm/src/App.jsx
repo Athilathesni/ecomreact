@@ -6,7 +6,6 @@ import Register from "./components/Register"
 import Login from "./components/Login"
 import HomePage from "./components/Homepage"
 import Nav from "./components/Nav"
-
 import Profile from "./components/Profile"
 
 

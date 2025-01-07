@@ -52,7 +52,7 @@ const Register = () => {
       <div className="register-container">
         {/* Left Side */}
         <div className="left-sider">
-            <h1>Sign Up</h1>
+            <h1 className="h1s">Sign Up</h1>
             <p>Sign up with your personal details to get started</p>
             <img src={loginimg} alt=""  className="img2"/>
         </div>
