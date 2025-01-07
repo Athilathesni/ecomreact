@@ -22,27 +22,29 @@ const transporter = nodemailer.createTransport({
 })
 
 export async function addUser(req, res) {
-  const { username, email, pwd, cpwd } = req.body
-  const user = await userSchema.findOne({ email })
+  const { username, email, phone, accType, pwd, cpwd} = req.body;
+  const user = await userSchema.findOne({ email });
   if (!user) {
     if (!(username && email && pwd && cpwd))
-      return res.status(500).send({ msg: "fields are empty" })
-    if (pwd != cpwd) return res.status(500).send({ msg: "pass not match" })
+      return res.status(500).send({ msg: "fields are empty" });
+    if (pwd !== cpwd) return res.status(500).send({ msg: "pass not match" });
     bcrypt
       .hash(pwd, 10)
       .then((hpwd) => {
-        userSchema.create({ username, email, pass: hpwd })
-        res.status(201).send({ msg: "Successfull" })
+        userSchema.create({ username, email, phone, accType, pass: hpwd});
+        res.status(201).send({ msg: "Successfull" });
       })
       .catch((error) => {
-        console.log(error)
+        console.log(error);
+        res.status(500).send({ msg: "Error creating user." });
       });
   } else {
-    res.status(500).send({ msg: "email already used " })
+    res.status(500).send({ msg: "email already used" });
   }
 }
 
-export async function login(req, res) {
+
+export async function login(req, res) { 
   const { email, pass } = req.body
   if (!(email && pass))
     return res.status(500).send({ msg: "fields are empty" })
@@ -55,45 +57,6 @@ export async function login(req, res) {
   res.status(201).send({ token })
 }
 
-export async function verifyEmail(req, res) {
-  const { email } = req.body;
-  console.log(email);
-  
-  if (!(email)) {
-      return res.status(500).send({ msg: "fields are empty" });
-  }
-
-  try {
-      const user = await userSchema.findOne({ email });
-
-      if (user) {
-          const info = await transporter.sendMail({
-            from: 'usmanchusman606@gmail.com', // sender address
-            to: email, // list of receivers
-            subject: "email", // Subject line
-            text: "VERIFY! your email", // plain text body
-            html: `
-            <div style="height: 200px; width: 200px; margin-left: 500px; margin-top: 250px;" >
-        <div style="width: 400px; height: 150px; border:none; background-color: rgb(248, 247, 247); border-radius: 3px; box-shadow:0 0 2px 2px rgb(199, 197, 197); ">
-            <h3 style="color: rgb(146, 57, 16); font-weight: bold; font-size: 25px; margin-top: 10px; margin-left: 110px;">Email Validation</h3>
-            <input type="text" name="email" id="email" placeholder="enter email" style="width: 250px; height: 30px; margin-top: 40px; margin-left: 20px;">
-             <a href="http://localhost:5173/register">
-            <button style="height:40px; width: 90px; color: white; background-color: seagreen; border: none; border-radius: 4px; font-weight: bold;">Verify</button>
-            </a>
-        </div>
-    </div>
-    `,
-    })
-    console.log("Message sent: %s", info.messageId);
-            res.status(200).send({ msg: " email sent" });
-        } else {
-            return res.status(500).send({ msg: "Email doesn't exist" });
-        }
-    } catch (error) {
-        console.error("Error sending email:", error);
-        res.status(500).send({ msg: "Error sending email" });
-    }
-  }
 
 export async function passchange(req, res) {
   const { email, pwd, cpwd } = req.body; 
