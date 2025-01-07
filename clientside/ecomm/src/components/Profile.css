@@ -4,11 +4,31 @@
     justify-content: space-between;
     padding: 20px;
   }
-  
-  .left-side, .right-side {
-    width: 48%;
+  .mainpro{
+    border: 2px solid rgb(253, 242, 242);
+    height: 300px;
+    border-radius: 2px;
+    box-shadow: 0 0 2px 2px rgb(155, 153, 153);
+    margin-top: 100px;
+    margin-left: 300px;
   }
-  
+  .left-side{
+    width: 400px;
+    height: 300px;
+    background-color: rgb(218, 218, 219);
+    margin-top: -19px;
+    border-radius: 2px;
+  } .right-side {
+    width: 600px;
+    margin-left: 420px;
+    margin-top: -300px;
+    height: 300px;
+    background-color: rgb(241, 236, 236);
+    border-radius: 2px;
+  }
+  .user-info{
+    margin-left: 20px;
+  }
   .left-side {
     border-right: 2px solid #e0e0e0;
     padding-right: 20px;
@@ -18,7 +38,10 @@
     padding-left: 20px;
   }
   
-  h3, h4 {
+  h3{
+    padding: 2px 2px;
+  } 
+  h4 {
     margin-bottom: 10px;
   }
   
@@ -26,26 +49,50 @@
     margin: 5px 0;
   }
   
-  .btn {
+  /* .btn {
     padding: 10px 20px;
     border: none;
     background-color: #f4f4f4;
     cursor: pointer;
     margin: 10px 0;
     width: 100%;
-  }
+  } */
   
   .logout {
+    width: 90px;
+    height: 30px;
+    align-items: center;
     background-color: #ff4d4f;
     color: white;
+    margin-top: 20px;
+    margin-left: 20px;
   }
   
   .delete {
     background-color: #ffecb3;
     color: #f56c6c;
+    width: 150px;
+    height: 30px;
+    margin-top: 20px;
+    margin-left: 20px;
   }
   
-  .top-seller, .cart, .wishlist, .orders {
+  .top-seller{
+    width: 100px;
+    height: 40px;
+   
+    background-color: #ff9800;
+    color: white;
+  }
+  .cart{
+    background-color: #ff9800;
+    color: white;
+  }
+   .wishlist{
+    background-color: #ff9800;
+    color: white;
+   }
+    .orders {
     background-color: #ff9800;
     color: white;
   }
@@ -69,10 +116,12 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
+  margin-right: 20px;
+  margin-top: 10px;
   }
   
   .user-actions button {
-    margin: 10px 0;
+    margin-left: 20px;
   }
   
   .address-details {

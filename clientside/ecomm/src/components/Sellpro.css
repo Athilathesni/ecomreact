@@ -1,79 +1,29 @@
-.seller-profile {
-  background-color: #f9f9f9;
+/* .seller-container {
+  display: flex;
+  justify-content: space-between;
   padding: 20px;
-  border-radius: 8px;
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.seller-profile h2 {
-  font-size: 24px;
-  color: #333;
-  text-align: center;
-  margin-bottom: 20px;
+.company-details {
+  width: 45%;
+  border-right: 1px solid #ddd;
+  padding-right: 20px;
 }
 
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+.category-details {
+  width: 45%;
+  padding-left: 20px;
 }
 
-.edit-btn {
-  background-color: #ff6f61;
-  color: white;
+.category-details ul {
+  list-style-type: none;
+  padding: 0;
 }
 
-.save-btn {
-  background-color: #28a745;
-  color: white;
+.category-details li {
+  margin-bottom: 10px;
 }
 
-.cancel-btn {
-  background-color: #ccc;
-  color: #333;
-}
-
-.details-section {
-  text-align: center;
-}
-
-.details-section p {
-  font-size: 16px;
-  color: #333;
-}
-
-.edit-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.input-field {
-  width: 100%;
-  max-width: 400px;
-  padding: 12px;
-  font-size: 16px;
-  margin-bottom: 20px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-.input-field:focus {
-  outline: none;
-  border-color: #007bff;
-}
-
-.action-buttons {
-  display: flex;
-  gap: 10px;
-}
-
-.action-buttons button {
-  width: 100px;
-}
+h2, h3 {
+  color: #2c3e50;
+} */

@@ -68,7 +68,7 @@ const Login = () => {
                 required
               />
              </div>
-             <button type="submit" className="btn-login" onClick={handleSubmit}> Login </button>
+             <button type="submit" className="btn-login1" onClick={handleSubmit}> Login </button>
         </form>
         <div className="form-footer">
            <Link to={"/#"} className="forgot-password-link">

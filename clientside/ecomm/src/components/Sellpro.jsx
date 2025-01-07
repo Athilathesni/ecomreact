@@ -1,79 +1,51 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import './Sellpro.css';
+// import React, { useEffect, useState } from 'react';
+// import './Sellpro.css';  // Make sure to import the CSS for styling
+// import { fetchSellerDetails, fetchCategoriesAndCount } from './requesthandler';
 
-const SellerProfile = () => {
-  const [isEditing, setIsEditing] = useState(false);
-  const [companyDetails, setCompanyDetails] = useState({ companyname: "", location: "" });
+// const Seller = () => {
+//   const [companyDetails, setCompanyDetails] = useState(null);
+//   const [categories, setCategories] = useState([]);
 
-  const handleSaveClick = async () => {
-    try {
-      await axios.post("http://localhost:3000/api/companyadd", companyDetails, {
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
-      });
-      setIsEditing(false);
-    } catch (error) {
-      console.error("Error adding company:");
-    }
-  };
+//   useEffect(() => {
+//     // Fetch seller company details and category item counts
+//     const getSellerData = async () => {
+//       const sellerData = await fetchSellerDetails();
+//       setCompanyDetails(sellerData);
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setCompanyDetails({ ...companyDetails, [name]: value });
-  };
+//       const categoryData = await fetchCategoriesAndCount();
+//       setCategories(categoryData);
+//     };
 
-  useEffect(() => {
-    // const fetchCompanyData = async () => {
-    //   try {
-    //     const res = await axios.get("http://localhost:3000/api/companydetails", {
-    //       headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
-    //     });
-    //     setCompanyDetails(res.data);
-       
-    //   } catch (error) {
-    //     console.error("Error fetching company data:", error);
-    //   }
-    // };
-    // fetchCompanyData();
-  }, []);
+//     getSellerData();
+//   }, []);
 
-  return (
-    <div className="seller-profile">
-      <h2>Company Details</h2>
-      {!companyDetails.companyname && !isEditing ? (
-        <button className="edit-btn" onClick={() => setIsEditing(true)}>Add Company</button>
-      ) : isEditing ? (
-        <div className="edit-section">
-          <input
-            type="text"
-            name="companyname"
-            value={companyDetails.companyname}
-            onChange={handleInputChange}
-            placeholder="Company Name"
-            className="input-field"
-          />
-          <input
-            type="text"
-            name="location"
-            value={companyDetails.location}
-            onChange={handleInputChange}
-            placeholder="Location"
-            className="input-field"
-          />
-          <div className="action-buttons">
-            <button className="save-btn" onClick={handleSaveClick}>Save</button>
-            <button className="cancel-btn" onClick={() => setIsEditing(false)}>Cancel</button>
-          </div>
-        </div>
-      ) : (
-        <div className="details-section">
-          <p><strong>Company Name:</strong> {companyDetails.companyname}</p>
-          <p><strong>Location:</strong> {companyDetails.location}</p>
-          <button className="edit-btn" onClick={() => setIsEditing(true)}>Edit</button>
-        </div>
-      )}
-    </div>
-  );
-};
+//   return (
+//     <div className="seller-container">
+//       <div className="company-details">
+//         {companyDetails && (
+//           <div>
+//             <h2>{companyDetails.name}</h2>
+//             <p>{companyDetails.address}</p>
+//             <p>{companyDetails.contact}</p>
+//           </div>
+//         )}
+//       </div>
+//       <div className="category-details">
+//         <h3>Categories</h3>
+//         {categories.length > 0 ? (
+//           <ul>
+//             {categories.map((category) => (
+//               <li key={category.name}>
+//                 {category.name} - {category.count} items
+//               </li>
+//             ))}
+//           </ul>
+//         ) : (
+//           <p>No categories available</p>
+//         )}
+//       </div>
+//     </div>
+//   );
+// };
 
-export default SellerProfile;
+// export default Seller;

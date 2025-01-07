@@ -47,8 +47,9 @@
     font-size: 1rem;
   }
   
-  .btn-login {
+  .btn-login1 {
     width: 450px;
+    height: 40px;
     background-color: #0c970c;
     color: white;
     border: none;
