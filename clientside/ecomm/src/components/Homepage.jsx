@@ -1,75 +1,46 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { Link,useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import "./Homepage.css";
 
-const HomePage = ({ setUser }) => {
-  const navigate = useNavigate();
-  const [posts, setPosts] = useState([]);
-  const token = localStorage.getItem("token");
+const HomePage = () => {
+    const [products, setProducts] = useState([]);
 
-  const getUser = async () => {
-    if (!token) {
-      navigate("/login");
-    } else {
-      try {
-        const res = await axios.get("http://localhost:3001/api/getuser", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        if (res.status === 200) {
-          setUser(res.data.name);
-        } else {
-          navigate("/login");
+    const fetchData = async () => {
+        try {
+            const res = await axios.get('http://localhost:3001/api/home',{
+                headers:{Authorization:`Berear ${localStorage.getItem('token')}`},
+            });
+            if (res.status === 200) {
+                setProducts(res.data); 
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error);
         }
-      } catch (error) {
-        console.error(error);
-        navigate("/login");
-      }
-    }
-  };
+    };
 
-  const getPosts = async () => {
-    try {
-      const res = await axios.get("http://localhost:3001/api/getAllPosts", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      if (res.status === 200) {
-        setPosts(res.data.data);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
+    useEffect(() => {
+        fetchData();
+    }, []);
 
-  useEffect(() => {
-    getUser();
-    getPosts();
-  }, []);
+    // console.log(products); 
 
-  return (
-    <div className="homepage-container">
-      <div className="post3-grid">
-        {posts.length === 0 ? (
-          <div>No posts available</div>
-        ) : (
-          posts.map((post) => (
-            <Link to={`/viewPost/${post._id}`}>
-                <div key={post._id} className="post3-card">
-            {post.images && post.images.length > 0 && (
-              <img
-                src={post.images[0]}
-                alt={post.caption}
-                className="post3-image"
-              />
-            )}
-            <div className="post3-caption">{post.caption}</div>
-          </div>
-          </Link>  
-          ))
-        )}
-      </div>
-    </div>
-  );
+    return (
+        <div className="home-page">
+            <div className="product-cards">
+                {products.map((product) => (
+                    <div key={product._id} className="product-card">
+                        <img src={product.thumbnail} alt={product.productname} className="product-thumbnail" />
+                        <div className="product-info">
+                            <h3 className="product-name">{product.productname}</h3>
+                            <p className="product-category">{product.category}</p>
+                            <p className="product-price">${product.price}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+        
+    );
 };
 
-export default HomePage
+export default HomePage;

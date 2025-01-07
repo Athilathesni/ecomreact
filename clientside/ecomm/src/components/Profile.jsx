@@ -1,135 +1,41 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
-import "./Profile.css";
+import React from 'react';
+import './Profile.css'; // Import the CSS file for styling
 
-const Profile = () => {
-  const navigate = useNavigate();
-  const [userData, setUserData] = useState(null);
-  const [userDetails, setUserDetails] = useState(null);
-  const [posts, setPosts] = useState([]);
-  const token = localStorage.getItem("token");
-
-  const getUser = async () => {
-    if (!token) {
-      navigate("/login");
-    } else {
-      try {
-        const res = await axios.get("http://localhost:3001/api/getuserData", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        if (res.status === 200) {
-          setUserDetails(res.data.usr);
-          setUserData(res.data.data || null);
-        } else {
-          navigate("/login");
-        }
-      } catch (error) {
-        console.error(error);
-        location.reload();
-        navigate("/login");
-      }
-    }
-  };
-
-  const getPosts = async () => {
-    try {
-      const res = await axios.get("http://localhost:3001/api/getPosts", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      if (res.status === 200) {
-        setPosts(res.data.data);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  useEffect(() => {
-    getUser();
-    getPosts();
-  }, []);
-
-  const handleClick = async (e) => {
-    e.preventDefault();
-    if (!token) {
-      navigate("/login");
-    } else {
-      try {
-        const res = await axios.delete("http://localhost:3001/api/deleteData", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        if (res.status === 200) {
-          alert(res.data.msg);
-          localStorage.removeItem("token");
-          navigate("/login");
-        } else {
-          navigate("/login");
-        }
-      } catch (error) {
-        console.error(error);
-        location.reload();
-        navigate("/login");
-      }
-    }
-  };
-
+const ProfilePage = () => {
   return (
-    <div className="container">
+    <div className="profile-page">
       <div className="left-side">
-        <form>
-          <div className="form5-group">
-            <div className="image">
-              <img src="" alt="" />
-            </div>
-            <div>Username: {userDetails?.username}</div>
-            <div>Email: {userDetails?.email}</div>
-          </div>
-        </form>
-        {userData ? (
-          <>
-            <div>
-              <div>Nickname: {userData.nickname}</div>
-              <div>Date of Birth: {userData.dob}</div>
-              <div>Note: {userData.note}</div>
-            </div>
-            <Link to={"/editUserData"}>
-              <button>Edit</button>
-            </Link>
-          </>
-        ) : (
-          <>
-            <div>Note:</div>
-            <Link to={"/addData"}>
-              <button className="buttonc">Create</button>
-            </Link>
-          </>
-        )}
-        <button onClick={handleClick} className="delbtn1">Delete</button>
+        <div className="user-info">
+          <h3>Username: John Doe</h3>
+          <p>Email: john.doe@example.com</p>
+          <p>Phone: +1 234 567 890</p>
+        </div>
+        <div className="action-buttons">
+          <button className="btn logout">Logout</button>
+          <button className="btn delete">Delete Account</button>
+        </div>
       </div>
-     
+
       <div className="right-side">
-        <Link to={"/addPost"}>
-          <button className="addbtn">Add Post</button>
-        </Link>
-        {posts.length === 0 ? (
-          <div>No post added</div>
-        ) : (
-          posts.map((post, index) => (
-            <div key={index}>
-              <img
-                src={posts[0].images[0]}
-                alt="First Post"
-                className="post2-image"
-              />
-              <Link to={`/viewUserPost/${post._id}`}>
-              <button>View</button>
-              </Link>
-              </div>
-              ))
-              )}
-      </div></div>
+        <div className="profile-header">
+          <button className="btn top-seller">Top Seller</button>
+          <img src="profile-icon.png" alt="Profile" className="profile-icon" />
+        </div>
+        <div className="user-actions">
+          <button className="btn cart">My Cart</button>
+          <button className="btn wishlist">My Wishlist</button>
+          <button className="btn orders">My Orders</button>
+        </div>
+        <div className="address">
+          <h4>Address</h4>
+          <div className="address-details">
+            <p>123 Main St, City, Country</p>
+            <button className="btn add-address">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
-export default Profile;
+export default ProfilePage;

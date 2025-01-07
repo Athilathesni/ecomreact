@@ -7,7 +7,7 @@ import Register from "./components/Register"
 import Login from "./components/Login"
 import HomePage from "./components/Homepage"
 import Nav from "./components/Nav"
-import Profile from "./components/Profile"
+import Sellpro from "./components/Sellpro"
 import AddData from "./components/AddData"
 import EditUserData from "./components/EditUserData"
 import AddPost from "./components/AddPost"
@@ -23,11 +23,10 @@ function App() {
         { <Nav/>}
         <Routes>
           <Route path="/" element={<HomePage setUser={setUser}/>}></Route>
-          <Route path="/changepass" element={<ChangePass />}></Route>
-          <Route path="/verify" element={<Verify />}></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/login" element={<Login />}></Route>
-          <Route path="/profile" element={<Profile />}></Route>
+          <Route path="/sellpro" element={<Sellpro/>} />
+          
           <Route path="/addData" element={<AddData/>}></Route>
           <Route path="/editUserData" element={<EditUserData />}></Route>
           <Route path="/addPost" element={<AddPost />}></Route>

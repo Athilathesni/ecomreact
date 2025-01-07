@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react"
-import { useNavigate } from "react-router-dom"
-import "./Nav.css"
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from "react-router-dom"
+import './Nav.css'
 
-const Nav = ({user}) => {
+
+const Nav = ({setFilter}) => {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false)
   const navigate = useNavigate()
 
@@ -31,28 +32,54 @@ const Nav = ({user}) => {
   }
 
   return (
-<nav className="navbar">
-      <div>
-        <img src="insta.webp" alt="" />
+    <nav className="navbar">
+      {/* Left Section */}
+      <div className="navbar-brand">
+        <a href="/" className="logo">𝐄-𝐂𝐎𝐌𝐌𝐄𝐑𝐂𝐄</a>
+        <p className="b1">ᴮᵉᵃᵘᵗʸ ᵃⁿᵈ ᴳʳᵒᵒᵐⁱⁿᵍ</p>
       </div>
-      <div className="right">
-        <span className="username">{user}</span>
-        <div onClick={toggleDropdown} style={{height:"30px",width:"30px",backgroundColor:"white",borderRadius:"50%"}}>
+      <div className="nav-left">
+        
+        {/* <img src={logo} alt="Logo" className="logo" /> */}
+        <select className="loca">
+          <option value="india">India</option>
+          <option value="usa">USA</option>
+          <option value="uk">UK</option>
+        </select>
+      </div>
+
+      {/* Center Section */}
+      <div className="nav-center">
+        <input
+          type="text"
+          className="search-input"
+          placeholder="Find Cars, Mobile Phones and more..."
+          onChange={(e) => setFilter(e.target.value)}
+        />
+
+      </div>
+
+      {/* Right Section */}
+      <div className="nav-right">
+        <div className="eng">  
+          <Link to={"/Login"}>
+       <button className='log'>login</button></Link>
+        </div>
+
+        <div className="profile-icon" onClick={toggleDropdown}></div>
         <div className="dropdown">
-        {isDropdownVisible && (
-            <div className="dropcontent">
-              <a href="/profile">Profile</a><br/>
-              <a className="logout" href="/login" onClick={handleLogout} style={{ cursor: "pointer"}}>
+          {isDropdownVisible && (
+            <div className="dropdown-content">
+              <a href="/Profile">Profile</a>
+              <a onClick={handleLogout} style={{ cursor: "pointer" }}>
                 Logout
               </a>
             </div>
           )}
         </div>
-        </div>
-      </div> 
-      </nav>
-    
-  )
-}
+      </div>
+    </nav>
+  );
+};
 
-export default Nav
+export default Nav;
